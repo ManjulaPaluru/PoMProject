@@ -2,7 +2,6 @@ package com.qa.opencart.tests;
 
 import com.qa.opencart.base.BaseTest;
 import com.qa.opencart.utils.Constants;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;

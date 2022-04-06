@@ -1,7 +1,6 @@
 package com.qa.opencart.utils;
 
 import edu.emory.mathcs.backport.java.util.Arrays;
-import org.apache.commons.collections4.functors.NullIsTruePredicate;
 
 import java.util.List;
 

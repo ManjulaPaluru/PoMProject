@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 import java.util.Random;
 
-public class RegistrationPageTest   extends BaseTest {
+public class RegistrationPageTest extends BaseTest {
 
     @BeforeClass
     public void regPageSetup(){
@@ -36,6 +36,5 @@ public class RegistrationPageTest   extends BaseTest {
                 (firstName,lastName, getRandomEmail(),telephone,password,subscribe));
 
     }
-
 
 }

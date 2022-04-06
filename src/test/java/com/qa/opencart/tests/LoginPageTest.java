@@ -3,8 +3,6 @@ package com.qa.opencart.tests;
 import com.qa.opencart.base.BaseTest;
 import com.qa.opencart.utils.Constants;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import static com.qa.opencart.utils.Constants.LOGIN_PAGE_TITLE;
