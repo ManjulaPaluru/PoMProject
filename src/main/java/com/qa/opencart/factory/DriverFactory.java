@@ -37,15 +37,11 @@ public class DriverFactory {
 
         if (browserName.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
-            // driver = new ChromeDriver(optionsManager.getChromeOptions());
             tlDriver.set(new ChromeDriver(optionsManager.getChromeOptions()));
         } else if (browserName.equalsIgnoreCase("firefox")) {
             WebDriverManager.firefoxdriver().setup();
-            // driver = new FirefoxDriver(optionsManager.getFirefoxOptions());
             tlDriver.set(new FirefoxDriver(optionsManager.getFirefoxOptions()));
-
         } else if (browserName.equalsIgnoreCase("safari")) {
-            // driver = new SafariDriver();
             tlDriver.set(new SafariDriver());
         } else {
             System.out.println("please pass the right browser name : " + browserName);
