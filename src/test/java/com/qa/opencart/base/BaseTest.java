@@ -26,7 +26,7 @@ public class BaseTest {
         System.out.println("@BeforeTest");
         df=new DriverFactory();
         prop=df.init_prop();
-       driver= df.init_driver(/*prop*/);
+       driver= df.init_driver(prop);
       loginpage =new Loginpage(driver);
 
     }
