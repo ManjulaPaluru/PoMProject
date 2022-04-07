@@ -32,4 +32,4 @@ build/
 
 # Project Runtime reports
 allure-results-bkp/
-screenshot-bkp/
+screenshot/
