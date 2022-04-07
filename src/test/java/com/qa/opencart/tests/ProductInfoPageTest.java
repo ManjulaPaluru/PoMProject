@@ -13,7 +13,7 @@ public class ProductInfoPageTest extends BaseTest {
 
     @BeforeClass
     public void productInfoSetup(){
-       accpage =  loginpage.doLogin(prop.getProperty("username"),prop.getProperty("password"));
+       accPage =  getLoginPage().doLogin(prop.getProperty("username"),prop.getProperty("password"));
     }
 
     @DataProvider
@@ -28,19 +28,19 @@ public class ProductInfoPageTest extends BaseTest {
 
    @Test(dataProvider = "getProductData")
     public void productInfoHeaderTest(String productName, String mainProductName){
-        searchResultsPage = accpage.doSearch(productName);
+        searchResultsPage = accPage.doSearch(productName);
        productInfoPage =  searchResultsPage.selectProduct(mainProductName);
        Assert.assertEquals(productInfoPage.getProductHeaderText(),mainProductName);
    }
 @Test
 public void productImageTest(){
-    searchResultsPage = accpage.doSearch("MacBook");
+    searchResultsPage = accPage.doSearch("MacBook");
     productInfoPage =  searchResultsPage.selectProduct("MakBook Air");
     Assert.assertEquals(productInfoPage.getProductImagesCount(), Constants.MACBOOK_IMAGES_COUNT);
 }
 @Test
     public void productInfoTest(){
-        searchResultsPage=accpage.doSearch("MacBook");
+        searchResultsPage= accPage.doSearch("MacBook");
        productInfoPage =  searchResultsPage.selectProduct("MacBook pro");
         Map<String,String>  actualProductInfoPage = productInfoPage.getProductInfo();
         actualProductInfoPage.forEach((k,v)-> System.out.println(k +" : " +v));

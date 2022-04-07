@@ -28,4 +28,8 @@ hs_err_pid*
 
 # Project Build Files
 target/
+build/
 
+# Project Runtime reports
+allure-results-bkp/
+screenshot-bkp/

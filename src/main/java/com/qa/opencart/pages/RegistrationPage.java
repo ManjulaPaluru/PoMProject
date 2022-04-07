@@ -45,7 +45,7 @@ public class RegistrationPage {
 
         eleUtil.doClick(agreeCheckBox);
         eleUtil.doClick(continueBtn);
-        if (getAccountRegisterSuccessMessage().contains(Constants.REGISTER_SUCCESS_MESSAGE)){
+        if (getAccountRegisterSuccessMessage().contains(Constants.REGISTER_SUCCESS_MESSG)){
             goToRegistration();
             return true;
         }

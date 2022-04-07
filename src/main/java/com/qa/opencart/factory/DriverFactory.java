@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Locale;
 import java.util.Properties;
 
 public class DriverFactory {
@@ -72,18 +73,45 @@ public class DriverFactory {
      */
     public Properties init_prop() {
         prop = new Properties();
+        FileInputStream ip = null;
+
+        //mvn clean install -Denv="qa"
+        //mvn clean install
+        // by default qa environment will run
+        String envName = System.getProperty("env");
+        System.out.println("Running tests on environment: " + envName);
+        if (envName == null) {
+            System.out.println("No environment is given , hence running it on QA ");
+            try {
+                ip = new FileInputStream("./src/test/resources/config/qa.config.properties");
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        } else {
+            try {
+                switch (envName.toLowerCase()) {
+                    case "qa":
+                    case "dev":
+                    case "stage":
+                    case "uat":
+                    case "prod":
+                        ip= new FileInputStream(("./src/test/resources/config/"+envName+".config.properties"));
+                        break;
+                    default:
+                        System.out.println("Please pass the right environment : " + envName);
+                        throw new RuntimeException("env: " + envName + " parameter is not supported");
+                }
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
         try {
-            FileInputStream ip = new FileInputStream("./src/test/resources/config/config.properties");
             prop.load(ip);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
-            e.printStackTrace();
+          e.printStackTrace();
         }
         return prop;
     }
-
-
     /**
      * take screenshot
      */

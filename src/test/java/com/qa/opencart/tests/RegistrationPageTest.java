@@ -12,7 +12,7 @@ public class RegistrationPageTest extends BaseTest {
 
     @BeforeClass
     public void regPageSetup(){
-        registrationPage = loginpage.navigateToRegisterPage();
+        registrationPage = getLoginPage().navigateToRegisterPage();
     }
     @Test
     public String getRandomEmail() {
