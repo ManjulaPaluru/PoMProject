@@ -31,5 +31,5 @@ target/
 build/
 
 # Project Runtime reports
-allure-results-bkp/
+allure-results/
 screenshot/
