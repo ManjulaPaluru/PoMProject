@@ -1,6 +1,9 @@
 package com.qa.opencart.factory;
 
+import com.qa.opencart.utils.Browser;
+import com.qa.opencart.utils.ErrorUtil;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -13,9 +16,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Locale;
 import java.util.Properties;
 
+@Slf4j
 public class DriverFactory {
 
     public WebDriver driver;
@@ -36,16 +39,19 @@ public class DriverFactory {
         highlight = prop.getProperty("highlight").trim();
         optionsManager = new OptionsManager(prop);
 
-        if (browserName.equalsIgnoreCase("chrome")) {
+        if (browserName.equalsIgnoreCase(Browser.CHROME_BROWSER_VALUE)) {
+            //suppose if we want to use system.SetProperty instead of webDriverManager third party tool,
+            // in that time we can meantain our executable files in  Browser interface
+            //System.setProperty(Browser.CHROME_DRIVER_BINARY_KEY,Browser.CHROME_DRIVER_PATH);
             WebDriverManager.chromedriver().setup();
             tlDriver.set(new ChromeDriver(optionsManager.getChromeOptions()));
-        } else if (browserName.equalsIgnoreCase("firefox")) {
+        } else if (browserName.equalsIgnoreCase(Browser.FIREFOX_BROWSER_VALUE)) {
             WebDriverManager.firefoxdriver().setup();
             tlDriver.set(new FirefoxDriver(optionsManager.getFirefoxOptions()));
-        } else if (browserName.equalsIgnoreCase("safari")) {
+        } else if (browserName.equalsIgnoreCase(Browser.SAFARI_BROWSER_VALUE)) {
             tlDriver.set(new SafariDriver());
         } else {
-            System.out.println("please pass the right browser name : " + browserName);
+            log.info(ErrorUtil.BROWSER_NOT_FOUND_ERROR_MESSAGE + browserName);
         }
 
         getDriver().manage().deleteAllCookies();
@@ -108,10 +114,11 @@ public class DriverFactory {
         try {
             prop.load(ip);
         } catch (IOException e) {
-          e.printStackTrace();
+            e.printStackTrace();
         }
         return prop;
     }
+
     /**
      * take screenshot
      */

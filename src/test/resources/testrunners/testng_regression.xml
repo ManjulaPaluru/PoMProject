@@ -14,13 +14,18 @@
 	</listeners>
 	<test name="Open Cart Login Page Test">
 		<classes>
-			<class name="com.qa.opencart.tests.LoginPageTest" />
+			<class name="com.qa.opencart.tests.LoginPageTest"/>
 		</classes>
 	</test>
 
 	<test name="Open Cart Accounts Page Test">
 		<classes>
-			<class name="com.qa.opencart.tests.AccountsPageTest" />
+			<class name="com.qa.opencart.tests.AccountsPageTest"/>
+		</classes>
+	</test>
+	<test name="Invalid login Page Test">
+		<classes>
+			<class name="com.qa.opencart.tests.LoginPageNegativeTest"/>
 		</classes>
 	</test>
 

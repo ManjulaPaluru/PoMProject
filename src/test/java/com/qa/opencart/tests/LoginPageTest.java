@@ -2,6 +2,7 @@ package com.qa.opencart.tests;
 
 import com.qa.opencart.base.BaseTest;
 import com.qa.opencart.utils.Constants;
+import com.qa.opencart.utils.ErrorUtil;
 import io.qameta.allure.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -17,7 +18,7 @@ public class LoginPageTest extends BaseTest {
     public void loginPageTitleTest() {
         String actualTitle = getLoginPage().getLoginPageTitle();
         System.out.println("actual title is: " + actualTitle);
-        Assert.assertEquals(actualTitle, LOGIN_PAGE_TITLE);
+        Assert.assertEquals(actualTitle, LOGIN_PAGE_TITLE, ErrorUtil.LOGIN_PAGE_TITlE_MISMATCH);
     }
 
     @Test
