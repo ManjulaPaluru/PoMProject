@@ -2,6 +2,7 @@ package com.qa.opencart.utils;
 
 public class Sample {
     public void login() {
+
         String userName = "manjula";
         System.out.println(userName);
     }
@@ -9,3 +10,4 @@ public class Sample {
     public static void main(String[] args) {
     }
 }
+ 
