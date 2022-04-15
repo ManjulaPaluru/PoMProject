@@ -8,12 +8,11 @@ public class Constants {
     public static final String ACCOUNT_DEMO_PAGE = "Account Demo page";
     public static final String ACCOUNT_DEMO_PAGE1 = "Account Demo page1";
     public static final String ACCOUNT_DEMO_PAGE2 = "Account Demo page2--added in main branch";
+    public static final String ACCOUNT_DEMO_PAGE3 = "Account Demo page3 adding in demopage local";
     public static final int DEFAULT_TIME_OUT = 5;
-
     public static final String LOGIN_PAGE_TITLE = "Account Login";
     public static final String LOGIN_PAGE_FRACTION_URL = "route=account/login";
     public static final String ACCOUNTS_PAGE_TITLE = "My Account";
-
     public static final List<String> ACCOUNTS_SECTIONS_LIST = Arrays.asList("My Account",
             "My Orders",
             "My Affiliate Account",
